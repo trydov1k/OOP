@@ -4,7 +4,7 @@ public class Photo
 {
 	public readonly int Width;
 	public readonly int Height;
-	public readonly Pixel[,] Data;
+	private readonly Pixel[,] Data;
 	
 	public Photo(int width, int height)
 	{
@@ -15,5 +15,10 @@ public class Photo
 		for (var x = 0; x < width; x++)
 		for (var y = 0; y < height; y++)
 			Data[x, y] = new Pixel();
+	}
+
+	public Pixel this[int x, int y]
+	{
+		get => Data[x, y];
 	}
 }
