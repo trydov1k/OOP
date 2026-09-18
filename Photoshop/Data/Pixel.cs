@@ -30,4 +30,7 @@ public class Pixel
             throw new ArgumentException();
         return value;
     }
+
+    public static double Trim(double value) 
+        => value < 0 ? 0 : value > 1 ? 1 : value;
 }

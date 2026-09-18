@@ -33,9 +33,9 @@ public class LighteningFilter : IFilter
         for (var y = 0; y < result.height; y++)
         {
             result.data[x, y] = new Pixel();
-            result.data[x, y].R = original.data[x, y].R * parameters[0];
-            result.data[x, y].G = original.data[x, y].G * parameters[0];
-            result.data[x, y].B = original.data[x, y].B * parameters[0];
+            result.data[x, y].R = Pixel.Trim(original.data[x, y].R * parameters[0]);
+            result.data[x, y].G = Pixel.Trim(original.data[x, y].G * parameters[0]);
+            result.data[x, y].B = Pixel.Trim(original.data[x, y].B * parameters[0]);
         }
         return result;
     }
