@@ -2,40 +2,32 @@ namespace MyPhotoshop;
 
 public class Pixel
 {
-    private double r;
-    private double g;
-    private double b;
+    private double _r;
+    private double _g;
+    private double _b;
 
     public double R
     {
-        get => r;
-        set
-        {
-            if (value < 0 || value > 1)
-                throw new ArgumentException();
-            r = value;
-        }
+        get => _r;
+        set => _r = CheckValue(value);
     }
     
     public double G
     {
-        get => g;
-        set
-        {
-            if (value < 0 || value > 1)
-                throw new ArgumentException();
-            g = value;
-        }
+        get => _g;
+        set => _g = CheckValue(value);
     }
     
     public double B
     {
-        get => b;
-        set
-        {
-            if (value < 0 || value > 1)
-                throw new ArgumentException();
-            b = value;
-        }
+        get => _b;
+        set => _b = CheckValue(value);
+    }
+
+    private double CheckValue(double value)
+    {
+        if (value < 0 || value > 1)
+            throw new ArgumentException();
+        return value;
     }
 }
