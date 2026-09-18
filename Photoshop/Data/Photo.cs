@@ -4,21 +4,18 @@ public class Photo
 {
 	public readonly int Width;
 	public readonly int Height;
-	private readonly Pixel[,] Data;
+	private readonly Pixel[,] _data;
 	
 	public Photo(int width, int height)
 	{
 		Width = width;
 		Height = height;
-		Data = new Pixel[width, height];
-		
-		for (var x = 0; x < width; x++)
-		for (var y = 0; y < height; y++)
-			Data[x, y] = new Pixel();
+		_data = new Pixel[width, height];
 	}
 
 	public Pixel this[int x, int y]
 	{
-		get => Data[x, y];
+		get => _data[x, y];
+		set => _data[x, y] = value;
 	}
 }

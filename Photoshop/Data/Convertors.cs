@@ -10,9 +10,11 @@ public static class Convertors
         for (var y = 0; y < bmp.Height; y++)
         {
             var pixel = bmp.GetPixel(x, y);
-            photo[x, y].R = (double)pixel.R / 255;
-            photo[x, y].G = (double)pixel.G / 255;
-            photo[x, y].B = (double)pixel.B / 255;
+            
+            photo[x, y] = new Pixel(
+                (double)pixel.R / 255,
+                (double)pixel.G / 255,
+                (double)pixel.B / 255);
         }
         return photo;
     }
