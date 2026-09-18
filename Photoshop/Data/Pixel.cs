@@ -31,6 +31,17 @@ public struct Pixel
         set => _b = CheckValue(value);
     }
 
+    public static Pixel operator *(Pixel pixel, double num)
+    {
+        return new Pixel(
+            Pixel.Trim(pixel.R * num),
+            Pixel.Trim(pixel.G * num),
+            Pixel.Trim(pixel.B * num));
+    }
+
+    public static Pixel operator *(double num, Pixel pixel) 
+        => pixel * num;
+
     private double CheckValue(double value)
     {
         if (value < 0 || value > 1)
