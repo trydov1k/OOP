@@ -4,6 +4,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Photoshop", "Photoshop\Phot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Incapsulation.Failures", "Incapsulation.Failures\Incapsulation.Failures.csproj", "{4E132E48-2004-43F1-8D91-C791350365AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankApi", "BankApi\BankApi.csproj", "{434A4343-6102-4158-932E-D6F11B1D2D07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Incapsulation.EnterpriseTask", "Incapsulation.EnterpriseTask\Incapsulation.EnterpriseTask.csproj", "{7F603860-3C6B-4862-8FAA-740EE058149D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Incapsulation", "Incapsulation", "{5B9B7B53-485F-42E1-83CF-B1F7CEBD5626}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Incapsulation.Weights", "Incapsulation.Weights\Incapsulation.Weights.csproj", "{1CEBF478-0999-4192-B90E-1F96EA974740}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Incapsulation.RationalNumbers", "Incapsulation.RationalNumbers\Incapsulation.RationalNumbers.csproj", "{84FCC363-5CEE-4E9D-A9FE-F98F806DF245}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +28,28 @@ Global
 		{4E132E48-2004-43F1-8D91-C791350365AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E132E48-2004-43F1-8D91-C791350365AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E132E48-2004-43F1-8D91-C791350365AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{434A4343-6102-4158-932E-D6F11B1D2D07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{434A4343-6102-4158-932E-D6F11B1D2D07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{434A4343-6102-4158-932E-D6F11B1D2D07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{434A4343-6102-4158-932E-D6F11B1D2D07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F603860-3C6B-4862-8FAA-740EE058149D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F603860-3C6B-4862-8FAA-740EE058149D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F603860-3C6B-4862-8FAA-740EE058149D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F603860-3C6B-4862-8FAA-740EE058149D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CEBF478-0999-4192-B90E-1F96EA974740}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CEBF478-0999-4192-B90E-1F96EA974740}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CEBF478-0999-4192-B90E-1F96EA974740}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CEBF478-0999-4192-B90E-1F96EA974740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84FCC363-5CEE-4E9D-A9FE-F98F806DF245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84FCC363-5CEE-4E9D-A9FE-F98F806DF245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84FCC363-5CEE-4E9D-A9FE-F98F806DF245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84FCC363-5CEE-4E9D-A9FE-F98F806DF245}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7F603860-3C6B-4862-8FAA-740EE058149D} = {5B9B7B53-485F-42E1-83CF-B1F7CEBD5626}
+		{4E132E48-2004-43F1-8D91-C791350365AC} = {5B9B7B53-485F-42E1-83CF-B1F7CEBD5626}
+		{1CEBF478-0999-4192-B90E-1F96EA974740} = {5B9B7B53-485F-42E1-83CF-B1F7CEBD5626}
+		{84FCC363-5CEE-4E9D-A9FE-F98F806DF245} = {5B9B7B53-485F-42E1-83CF-B1F7CEBD5626}
+		{8C6D31ED-9E29-45E7-829A-7FE848E63E14} = {5B9B7B53-485F-42E1-83CF-B1F7CEBD5626}
 	EndGlobalSection
 EndGlobal
