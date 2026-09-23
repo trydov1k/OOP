@@ -13,9 +13,4 @@
     <Compile Remove="*.WrongAnswer.*" />
     <None Include="*.WrongAnswer.*" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
-    <PackageReference Include="NUnit" Version="4.2.2" />
-    <PackageReference Include="NUnitLite" Version="4.2.2" />
-  </ItemGroup>
 </Project>
