@@ -14,6 +14,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Incapsulation.Weights", "In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Incapsulation.RationalNumbers", "Incapsulation.RationalNumbers\Incapsulation.RationalNumbers.csproj", "{84FCC363-5CEE-4E9D-A9FE-F98F806DF245}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inheritance", "Inheritance", "{E5678AEF-191B-44A0-B9CB-08EFB2BCA424}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inheritance.DataStructure", "Inheritance.DataStructure\Inheritance.DataStructure.csproj", "{36D37034-1206-4809-BBBD-E016AE2C9035}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,11 +48,16 @@ Global
 		{84FCC363-5CEE-4E9D-A9FE-F98F806DF245}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84FCC363-5CEE-4E9D-A9FE-F98F806DF245}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84FCC363-5CEE-4E9D-A9FE-F98F806DF245}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36D37034-1206-4809-BBBD-E016AE2C9035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36D37034-1206-4809-BBBD-E016AE2C9035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36D37034-1206-4809-BBBD-E016AE2C9035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36D37034-1206-4809-BBBD-E016AE2C9035}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{7F603860-3C6B-4862-8FAA-740EE058149D} = {5B9B7B53-485F-42E1-83CF-B1F7CEBD5626}
 		{4E132E48-2004-43F1-8D91-C791350365AC} = {5B9B7B53-485F-42E1-83CF-B1F7CEBD5626}
 		{1CEBF478-0999-4192-B90E-1F96EA974740} = {5B9B7B53-485F-42E1-83CF-B1F7CEBD5626}
 		{84FCC363-5CEE-4E9D-A9FE-F98F806DF245} = {5B9B7B53-485F-42E1-83CF-B1F7CEBD5626}
+		{36D37034-1206-4809-BBBD-E016AE2C9035} = {E5678AEF-191B-44A0-B9CB-08EFB2BCA424}
 	EndGlobalSection
 EndGlobal
