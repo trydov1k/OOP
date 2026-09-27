@@ -2,8 +2,8 @@
 
 public class Rational
 {
-    public int Numerator { get; private set; }
-    public int Denominator { get;  private set; }
+    public readonly int Numerator;
+    public readonly int Denominator;
     public bool IsNan => Denominator == 0;
 
     public Rational(int numerator, int denominator)
@@ -45,8 +45,9 @@ public class Rational
     
     public static Rational operator -(Rational r1, Rational r2)
     {
-        r2.Numerator = -r2.Numerator;
-        return r1 + r2;
+        var numerator = (r1.Numerator * r2.Denominator) - (r2.Numerator *  r1.Denominator);
+        var denominator = r1.Denominator * r2.Denominator;
+        return new Rational(numerator, denominator);
     }
     
     public static Rational operator *(Rational r1, Rational r2)
@@ -61,8 +62,9 @@ public class Rational
         if (r2.IsNan)
             return new Rational(0, 0);
         
-        (r2.Numerator, r2.Denominator) = (r2.Denominator, r2.Numerator);
-        return r1 * r2;
+        var numerator = r1.Numerator * r2.Denominator;
+        var denominator = r1.Denominator * r2.Numerator;
+        return new Rational(numerator, denominator);
     }
     
     public static implicit operator double(Rational r) 
