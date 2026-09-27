@@ -16,7 +16,9 @@ public partial class App : Application
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             var mainWindow = new MainWindow();
+            mainWindow.AddFilter(new GrayscaleFilter());
             mainWindow.AddFilter(new LighteningFilter());
+            
             desktop.MainWindow = mainWindow;
         }
 
