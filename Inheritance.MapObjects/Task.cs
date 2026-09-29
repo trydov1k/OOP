@@ -1,80 +1,69 @@
 namespace Inheritance.MapObjects;
 
-public class Dwelling
+public class Dwelling : IAppropriatingObject
 {
 	public int Owner { get; set; }
 }
 
-public class Mine
+public class Mine : IBeatingWithArmyObject,  IConsumingTreasureObject, IAppropriatingObject
 {
 	public int Owner { get; set; }
 	public Army Army { get; set; }
 	public Treasure Treasure { get; set; }
 }
 
-public class Creeps
+public class Creeps : IBeatingWithArmyObject, IConsumingTreasureObject
 {
 	public Army Army { get; set; }
 	public Treasure Treasure { get; set; }
 }
 
-public class Wolves
+public class Wolves : IBeatingWithArmyObject
 {
 	public Army Army { get; set; }
 }
 
-public class ResourcePile
+public class ResourcePile : IConsumingTreasureObject
 {
 	public Treasure Treasure { get; set; }
+}
+
+public interface IBeatingWithArmyObject
+{
+	public Army Army { get; set; }
+}
+
+public interface IConsumingTreasureObject
+{
+	public Treasure Treasure { get; set; }
+}
+
+public interface IAppropriatingObject
+{
+	public int Owner { get; set; }
 }
 
 public static class Interaction
 {
 	public static void Make(Player player, object mapObject)
 	{
-		//Здесь и далее используйте следующий сокращенный синтаксис преобразования типа
-		if (mapObject is Dwelling dwellingObj)
+		if (mapObject is IBeatingWithArmyObject beatingWithArmyObject)
 		{
-			//Он более короткий и позволяет не производить множественных преобразований таких, как
-			//((Dwelling)mapObject).Owner = player.Id;
-
-			//а сразу обращаться к объекту, если он является каким-то классом.
-			dwellingObj.Owner = player.Id;
-
-			return;
-		}
-
-		//Перед выполнение задания потренируйтесь и замените неправильное использование is ниже
-		if (mapObject is Mine)
-		{
-			if (player.CanBeat(((Mine)mapObject).Army))
+			if (!player.CanBeat(beatingWithArmyObject.Army))
 			{
-				((Mine)mapObject).Owner = player.Id;
-				player.Consume(((Mine)mapObject).Treasure);
+				player.Die();
+				return;
 			}
-			else player.Die();
-			return;
 		}
 
-		if (mapObject is Creeps)
+		if (mapObject is IConsumingTreasureObject consumingTreasureObject)
 		{
-			if (player.CanBeat(((Creeps)mapObject).Army))
-				player.Consume(((Creeps)mapObject).Treasure);
-			else
-				player.Die();
-			return;
+			player.Consume(consumingTreasureObject.Treasure);
 		}
-
-		if (mapObject is ResourcePile)
+		
+		if (mapObject is IAppropriatingObject appropriatingObject)
 		{
-			player.Consume(((ResourcePile)mapObject).Treasure);
-			return;
-		}
-
-		if (mapObject is Wolves)
-		{
-			if (!player.CanBeat(((Wolves)mapObject).Army))
-				player.Die();
+			appropriatingObject.Owner = player.Id;
 		}
 	}
 }
