@@ -1,5 +1,3 @@
-using System.Drawing;
-
 namespace Inheritance.Geometry.Virtual;
 
 public abstract class Body
