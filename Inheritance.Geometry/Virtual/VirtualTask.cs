@@ -1,3 +1,5 @@
+using System.Drawing;
+
 namespace Inheritance.Geometry.Virtual;
 
 public abstract class Body
@@ -116,37 +118,41 @@ public class CompoundBody : Body
 
 	public override RectangularCuboid GetBoundingBox()
 	{
-		double minX = double.MaxValue, maxX = double.MinValue, 
-			minY = double.MaxValue, maxY = double.MinValue, 
-			minZ = double.MaxValue, maxZ = double.MinValue;
-		foreach (var part in Parts)
+		Vector3 minPoint = new(), maxPoint = new();
+		foreach (var box in Parts.Select(body => body.GetBoundingBox()))
 		{
-			var box = part.GetBoundingBox();
-			minX = MinCoordinate(minX, box.Position.X , box.SizeX);
-			minY = MinCoordinate(minY, box.Position.Y , box.SizeY);
-			minZ = MinCoordinate(minZ, box.Position.Z , box.SizeZ);
-			maxX = MaxCoordinate(maxX, box.Position.X , box.SizeX);
-			maxY = MaxCoordinate(maxY, box.Position.Y , box.SizeY);
-			maxZ = MaxCoordinate(maxZ, box.Position.Z , box.SizeZ);
-			// Что сделать, чтобы код соответствовал Dont Repeat Yourself?
-			// Я не знаю что можно сделать, чтобы не писать 6 одинаковых строк
+			minPoint = MinPoint(minPoint, box);
+			maxPoint = MaxPoint(maxPoint, box);
+			// Вынес методы нахождения точек минимума и максимума в отдельные методы
+			// По другому вижу только если использовать LINQ, а мне не хочется
+			// его использовать, так как тогда мы пройдемся по коллекции 6 раз 
 		}
 		
-		var center = new Vector3((minX + maxX) / 2, (minY + maxY) / 2, (minZ + maxZ) / 2);
-		var sizeX = maxX - minX;
-		var sizeY = maxY - minY;
-		var sizeZ = maxZ - minZ;
+		var center = new Vector3(
+			(minPoint.X + maxPoint.X) / 2, 
+			(minPoint.Y + maxPoint.Y) / 2, 
+			(minPoint.Z + maxPoint.Z) / 2);
+		
+		var sizeX = maxPoint.X - minPoint.X;
+		var sizeY = maxPoint.Y - minPoint.Y;
+		var sizeZ = maxPoint.Z - minPoint.Z;
     
 		return new RectangularCuboid(center, sizeX, sizeY, sizeZ);
 	}
 
-	private double MinCoordinate(double oldMin, double coordinate, double size)
+	private Vector3 MinPoint(Vector3 minPoint, RectangularCuboid rectangularCuboid)
 	{
-		return Math.Min(oldMin, coordinate - size / 2);
+		var minX = Math.Min(minPoint.X, rectangularCuboid.Position.X - rectangularCuboid.SizeX / 2);
+		var minY = Math.Min(minPoint.Y, rectangularCuboid.Position.Y - rectangularCuboid.SizeY / 2);
+		var minZ = Math.Min(minPoint.Z, rectangularCuboid.Position.Z - rectangularCuboid.SizeZ / 2);
+		return new Vector3(minX, minY, minZ);
 	}
-
-	private double MaxCoordinate(double oldMax, double coordinate, double size)
+	
+	private Vector3 MaxPoint(Vector3 maxPoint, RectangularCuboid rectangularCuboid)
 	{
-		return Math.Max(oldMax, coordinate + size / 2);
+		var maxX = Math.Min(maxPoint.X, rectangularCuboid.Position.X + rectangularCuboid.SizeX / 2);
+		var maxY = Math.Min(maxPoint.Y, rectangularCuboid.Position.Y + rectangularCuboid.SizeY / 2);
+		var maxZ = Math.Min(maxPoint.Z, rectangularCuboid.Position.Z + rectangularCuboid.SizeZ / 2);
+		return new Vector3(maxX, maxY, maxZ);
 	}
 }
