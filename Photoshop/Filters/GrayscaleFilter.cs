@@ -2,7 +2,7 @@
 
 namespace MyPhotoshop;
 
-public class GrayscaleFilter() : PixelFilter<GrayscaleParameters>(new GrayscaleParameters())
+public class GrayscaleFilter : PixelFilter<GrayscaleParameters>
 {
     public override string ToString()
     {

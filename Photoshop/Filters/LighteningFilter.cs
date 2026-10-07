@@ -2,7 +2,7 @@ using MyPhotoshop.Parameters;
 
 namespace MyPhotoshop;
 
-public class LighteningFilter() : PixelFilter<LighteningParameters>(new LighteningParameters())
+public class LighteningFilter : PixelFilter<LighteningParameters>
 {
     public override string ToString()
     {

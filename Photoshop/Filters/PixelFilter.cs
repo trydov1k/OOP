@@ -2,8 +2,8 @@
 
 namespace MyPhotoshop;
 
-public abstract class PixelFilter<TParameters>(TParameters parameters) : ParametrizedFilter<TParameters>(parameters)
-where TParameters : IParameters
+public abstract class PixelFilter<TParameters>: ParametrizedFilter<TParameters>
+where TParameters : IParameters, new()
 {
     public abstract Pixel ProcessPixel(Pixel original, TParameters parameters);
 

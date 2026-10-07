@@ -2,18 +2,17 @@
 
 namespace MyPhotoshop;
 
-public abstract class ParametrizedFilter<TParameters>(TParameters parameters) : IFilter
-where TParameters : IParameters
+public abstract class ParametrizedFilter<TParameters> : IFilter
+where TParameters : IParameters, new()
 {
-    public readonly TParameters Parameters = parameters;
-
-    public ParameterInfo[] GetParameters() => Parameters.GetDescription();
+    public ParameterInfo[] GetParameters() => new TParameters().GetDescription();
 
     public abstract Photo Process(Photo photo, TParameters parameters);
 
     public Photo Process(Photo photo, double[] parameters)
     {
-        Parameters.Parse(parameters);
-        return Process(photo, Parameters);
+        var _parameters = new TParameters();
+        _parameters.Parse(parameters);
+        return Process(photo, _parameters);
     }
 }
