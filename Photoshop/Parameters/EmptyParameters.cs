@@ -1,6 +1,6 @@
 ﻿namespace MyPhotoshop.Parameters;
 
-public class GrayscaleParameters : IParameters
+public class EmptyParameters : IParameters
 {
     public ParameterInfo[] GetDescription()
     {
